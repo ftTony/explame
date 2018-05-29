@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start":"webpack-dev-server --inline --hot --config webpack.config.dev.js",
+    "start": "webpack-dev-server --inline --hot --config webpack.config.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -17,8 +17,9 @@
     "css-loader": "^0.28.11",
     "less": "^3.0.2",
     "less-loader": "^4.1.0",
+    "mini-css-extract-plugin": "^0.4.0",
     "style-loader": "^0.21.0",
-    "webpack": "^4.7.0",
+    "webpack": "^4.10.0",
     "webpack-cli": "^2.1.2",
     "webpack-dev-server": "^3.1.4"
   }

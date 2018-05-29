@@ -1,5 +1,8 @@
 const webpack = require('webpack');
-
+const ExtractTextPlugin = require("mini-css-extract-plugin");
+const extractLess = new ExtractTextPlugin({
+    filename: "[name].[contenthash].css"
+});
 var webpackBase = {
     context: __dirname,
     entry: {
@@ -34,16 +37,15 @@ var webpackBase = {
             },
             {
                 test: /\.less$/,
-                use: [{
-                    loader: 'style-loader'
-                }, {
-                    loader: 'css-loader'
-                }, {
-                    loader: 'less-loader'
-                }]
+                use: [
+                    ExtractTextPlugin.loader,
+                    "css-loader"]
             }
         ]
-    }
+    },
+    plugins: [
+        extractLess
+    ]
 }
 
 module.exports = webpackBase;

@@ -1,5 +1,5 @@
 import GameController from './game_controller';
-import '../less/style.less';
+import ('../less/style.less');
 
 var tips = {
     fail: '弹簧弹子每次弹跳都会回血哦~',
