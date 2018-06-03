@@ -13,7 +13,7 @@ var webpackBase = {
     output: {
         path: __dirname + '/dist',
         filename: '[name].js',
-        publicPath: '/PersonalProject/floors/dist/'
+        publicPath: '~/PersonalProject/floors/dist/'
     },
     devServer: {
         hot: true,

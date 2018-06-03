@@ -8,7 +8,7 @@ var tips = {
 
 var preloadImg = function () {
     var imgList = [
-        '/public/images/spring-up.png'
+        './public/images/spring-up.png'
     ];
     for (var i = 0; i < imgList.length; i++) {
         var _img = new Image();
