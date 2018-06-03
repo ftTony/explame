@@ -26,13 +26,25 @@ module.exports = {
             {
                 test: /\.s?[ac]ss$/,
                 use: [
-                    MiniCssExtractPlugin.loader,'css-loader','postcss-loader','sass-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader','postcss-loader','sass-loader'
                 ]
             },{
                 test:/\.less$/,
                 use:[
-                    MiniCssExtractPlugin.loader,'css-loader','postcss-loader','less-loader'
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    'postcss-loader',
+                    'less-loader'
                 ]
+            },
+            {
+                test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
+                loader: 'url-loader'
+            },
+            {
+                test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
+                loader: 'url-loader'
             }
         ]
     },
@@ -40,7 +52,7 @@ module.exports = {
         new CleanWebpackPlugin([BUILD_PATH]),
         // new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({ //提取为外部css代码
-            filename: '/css-build/[name].css?v=[contenthash]'
+            filename: 'css-build/[name].css?v=[contenthash]'
         }),
         new HtmlWebpackPlugin({
             filename: ROOT_PATH + '/floors/index.html',
