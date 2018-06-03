@@ -20,9 +20,9 @@ var webpackBase = {
         inline:true
     },
     devtool: 'cheap-eval-source-map',
-    plugins: [
-        new webpack.HotModuleReplacementPlugin()
-    ],
+    // plugins: [
+    //     new webpack.HotModuleReplacementPlugin()
+    // ],
     module: {
         rules: [
             {
