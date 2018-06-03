@@ -1,0 +1,437 @@
+[title="站长统计"] {
+  display: none!important;
+}
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+body {
+  max-width: 500px;
+  margin: auto;
+  background: url("/images/floors/bg.jpg") no-repeat center center;
+  background-size: cover;
+}
+#game-ct {
+  display: none;
+  height: 100%;
+  background: url('/images/floors/bg-cover.png') no-repeat center center;
+  background-size: cover;
+  padding-bottom: 170px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  position: relative;
+}
+#game-ct::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 14px;
+  width: 100%;
+  background: url('/images/floors/top-nail.png') repeat-x left top;
+  background-size: auto 100%;
+}
+#game-ct::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  pointer-events: none;
+  -webkit-transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease;
+}
+#game-ct.danger::before {
+  background-color: rgba(255, 0, 0, 0.3);
+}
+.game-intro .index-text-img {
+  display: block;
+  width: 45%;
+  margin: 130px auto 0;
+}
+.game-intro .text-desc {
+  text-align: center;
+  color: #7179da;
+  margin-top: 50px;
+  font-size: 14px;
+}
+.bottom-btn-ct {
+  position: absolute;
+  width: 100%;
+  bottom: 67px;
+}
+.bottom-btn-ct .start-btn {
+  background: #ecff00;
+  border-radius: 100px;
+  margin: 0 25px;
+  font-size: 18px;
+  color: #16142e;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  cursor: pointer;
+}
+.bottom-btn-ct .start-btn:active {
+  background: #bdcc00;
+  -webkit-transform: translateY(3px);
+          transform: translateY(3px);
+}
+.game-over {
+  text-align: center;
+  display: none;
+}
+.game-over .text-gameover {
+  margin-top: 103px;
+  font-family: 'Robot Condensed';
+  font-size: 48px;
+  color: #3945e6;
+}
+.game-over .text-score-title {
+  font-family: 'Robot Condensed';
+  margin-top: 30px;
+  font-size: 12px;
+  color: #4f5bff;
+}
+.game-over .text-score {
+  font-family: 'Robot Condensed';
+  font-size: 100px;
+  color: #ffffff;
+}
+.game-over .share-btn {
+  height: 64px;
+  width: 64px;
+  display: block;
+  cursor: pointer;
+  margin: auto;
+}
+.game-over .text-desc {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 50px;
+  font-size: 14px;
+}
+.game-over .author {
+  position: absolute;
+  bottom: 16px;
+  font-size: 12px;
+  left: 0;
+  width: 100%;
+  color: #7179da;
+  text-decoration: none;
+}
+.container {
+  height: 100%;
+  overflow: hidden;
+  -webkit-user-select: none;
+  position: relative;
+}
+.container .controller .blood-ct {
+  margin: 10px 17px;
+}
+.container .controller .blood-ct .blood {
+  border: 1px solid #4955ff;
+  border-radius: 5px;
+  height: 6px;
+  position: relative;
+  overflow: hidden;
+}
+.container .controller .blood-ct .blood i {
+  float: left;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 8.3333333333%;
+  height: 100%;
+  border-right: 1px solid #4955ff;
+  background-color: #ecfd36;
+}
+.container .controller .blood-ct .blood i:last-child {
+  border-right: none;
+}
+.container .controller .blood-ct .blood i.lose {
+  background-color: red;
+  -webkit-transition: opacity .3s ease .5s;
+  transition: opacity .3s ease .5s;
+  opacity: 0;
+}
+.container .controller .ctrl-ct {
+  width: 50%;
+  float: left;
+  overflow: auto;
+  position: relative;
+  z-index: 100;
+}
+.container .controller .ctrl-ct .item {
+  width: 64px;
+  height: 64px;
+  margin: 20px;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+.container .controller .ctrl-ct .item img {
+  width: 100%;
+  display: block;
+}
+.container .controller .ctrl-ct .item.left {
+  float: left;
+}
+.container .controller .ctrl-ct .item.right {
+  float: right;
+}
+.container .controller .score-ct {
+  position: absolute;
+  bottom: 58px;
+  width: 100%;
+  text-align: center;
+}
+.container .controller .score-ct .text-score {
+  font-family: 'Robot Condensed';
+  font-size: 48px;
+  color: #ffffff;
+}
+.container .controller .score-ct .text-score-title {
+  font-family: 'Robot Condensed';
+  font-size: 12px;
+  color: #4f5bff;
+}
+.game-canvas {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  pointer-events: none;
+}
+.game-canvas.canvas {
+  height: auto;
+}
+.game-canvas .people {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  background-color: #00acff;
+  overflow: hidden;
+}
+.game-canvas .people.danger {
+  background-color: red;
+}
+.game-canvas .scroller {
+  height: 1000px;
+  position: relative;
+}
+.game-canvas .scroller .floor {
+  position: absolute;
+  width: 90px;
+  height: 10px;
+}
+.game-canvas .scroller .floor.normal {
+  background: url('/images/floors/normal.png') no-repeat center center;
+  background-size: 100% 100%;
+}
+.game-canvas .scroller .floor.weak {
+  -webkit-transition: opacity .3s ease .3s,-webkit-transform .3s ease;
+  transition: opacity .3s ease .3s,-webkit-transform .3s ease;
+  transition: opacity .3s ease .3s,transform .3s ease;
+  transition: opacity .3s ease .3s,transform .3s ease,-webkit-transform .3s ease;
+}
+.game-canvas .scroller .floor.weak:before {
+  content: '';
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  width: 52%;
+  height: 100%;
+  background: url("/images/floors/weak-left.png") no-repeat center center;
+  background-size: 100% 100%;
+  left: 0;
+  top: 0;
+  position: absolute;
+}
+.game-canvas .scroller .floor.weak:after {
+  content: '';
+  -webkit-transition: -webkit-transform .3s ease;
+  transition: -webkit-transform .3s ease;
+  transition: transform .3s ease;
+  transition: transform .3s ease, -webkit-transform .3s ease;
+  -webkit-transform-origin: 100% 0;
+          transform-origin: 100% 0;
+  width: 52%;
+  height: 100%;
+  background: url('/images/floors/weak-right.png') no-repeat center center;
+  background-size: 100% 100%;
+  right: 0;
+  top: 0;
+  position: absolute;
+}
+.game-canvas .scroller .floor.weak.over {
+  opacity: 0;
+}
+.game-canvas .scroller .floor.weak.over::before {
+  -webkit-transform: rotateZ(35deg) translateX(5px);
+          transform: rotateZ(35deg) translateX(5px);
+}
+.game-canvas .scroller .floor.weak.over::after {
+  -webkit-transform: rotateZ(-20deg) translateX(-5px);
+          transform: rotateZ(-20deg) translateX(-5px);
+}
+.game-canvas .scroller .floor.nail:after {
+  content: '';
+  background: url('/images/floors/nail.png') no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 200%;
+}
+.game-canvas .scroller .floor.scroll-left {
+  background-image: url('/images/floors/scroll-left.png');
+  background-size: 400% 100%;
+  background-position: 100% top;
+  -webkit-animation: bgScroolToLeft 0.5s step-end infinite;
+          animation: bgScroolToLeft 0.5s step-end infinite;
+}
+.game-canvas .scroller .floor.scroll-right {
+  background-image: url('/images/floors/scroll-right.png');
+  background-size: 400% 100%;
+  background-position: 100% top;
+  -webkit-animation: bgScroolToRight 0.5s step-end infinite;
+          animation: bgScroolToRight 0.5s step-end infinite;
+}
+.game-canvas .scroller .floor.spring {
+  background-color: transparent;
+}
+.game-canvas .scroller .floor.spring:after {
+  content: '';
+  background: url('/images/floors/spring-normal.png') no-repeat center center;
+  background-size: 100% 100%;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.game-canvas .scroller .floor.spring.up:after {
+  background: url('/images/floors/spring-up.png') no-repeat center center;
+  background-size: 100% 100%;
+  height: 150%;
+}
+@-webkit-keyframes bgShake {
+  0% {
+    background-color: #00acff;
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: #00acff;
+  }
+  75% {
+    background-color: red;
+  }
+  100% {
+    background-color: #00acff;
+  }
+}
+@keyframes bgShake {
+  0% {
+    background-color: #00acff;
+  }
+  25% {
+    background-color: red;
+  }
+  50% {
+    background-color: #00acff;
+  }
+  75% {
+    background-color: red;
+  }
+  100% {
+    background-color: #00acff;
+  }
+}
+@-webkit-keyframes bloodLose {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@keyframes bloodLose {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+@-webkit-keyframes bgScroolToLeft {
+  0% {
+    background-position: 0 top;
+  }
+  33% {
+    background-position: 33% top;
+  }
+  66.5% {
+    background-position: 66.5% top;
+  }
+  100% {
+    background-position: 100% top;
+  }
+}
+@keyframes bgScroolToLeft {
+  0% {
+    background-position: 0 top;
+  }
+  33% {
+    background-position: 33% top;
+  }
+  66.5% {
+    background-position: 66.5% top;
+  }
+  100% {
+    background-position: 100% top;
+  }
+}
+@-webkit-keyframes bgScroolToRight {
+  0% {
+    background-position: 100% top;
+  }
+  33% {
+    background-position: 66.5% top;
+  }
+  66.5% {
+    background-position: 33% top;
+  }
+  100% {
+    background-position: 0 top;
+  }
+}
+@keyframes bgScroolToRight {
+  0% {
+    background-position: 100% top;
+  }
+  33% {
+    background-position: 66.5% top;
+  }
+  66.5% {
+    background-position: 33% top;
+  }
+  100% {
+    background-position: 0 top;
+  }
+}
+
