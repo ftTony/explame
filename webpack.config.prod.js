@@ -3,7 +3,7 @@ const path = require('path');
 const ROOT_PATH = path.resolve(__dirname);
 
 const SRC_PATH = path.resolve(ROOT_PATH, 'scripts');
-const BUILD_PATH = path.resolve(ROOT_PATH, 'scripts-build');
+const BUILD_PATH = path.resolve(ROOT_PATH, 'static');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -15,7 +15,7 @@ module.exports = {
     devtool: 'cheap-eval-source-map',
     output: {
         path: BUILD_PATH,
-        filename: '[name].js'
+        filename: 'js/[name].js'
     },
     module: {
         rules: [{
@@ -40,7 +40,7 @@ module.exports = {
         new CleanWebpackPlugin([BUILD_PATH]),
         // new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({ //提取为外部css代码
-            filename: '[name].css?v=[contenthash]'
+            filename: '/css-build/[name].css?v=[contenthash]'
         }),
         new HtmlWebpackPlugin({
             filename: ROOT_PATH + '/floors/index.html',
