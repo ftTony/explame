@@ -13,16 +13,16 @@ var webpackBase = {
     output: {
         path: __dirname + '/dist',
         filename: '[name].js',
-        publicPath: '/PersonalProject/floors/dist/'
+        publicPath: '/dist/'
     },
     devServer: {
         hot: true,
         inline:true
     },
     devtool: 'cheap-eval-source-map',
-    // plugins: [
-    //     new webpack.HotModuleReplacementPlugin()
-    // ],
+    plugins: [
+        new webpack.HotModuleReplacementPlugin()
+    ],
     module: {
         rules: [
             {
