@@ -4,7 +4,8 @@
   "description": "floor",
   "main": "webpack.config.js",
   "scripts": {
-    "dev": "webpack-dev-server --mode development --open"
+    "dev": "webpack-dev-server --mode development --open",
+    "build": "webpack --mode production"
   },
   "author": "tony",
   "license": "ISC",
