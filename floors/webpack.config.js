@@ -19,7 +19,8 @@ module.exports = {
         inline: true,
         open: true,
         overlay: true,
-        hot: true
+        hot: true,
+        // publicPath: "/"
     },
     module: {
         rules: [{
