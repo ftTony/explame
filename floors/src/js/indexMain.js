@@ -1,5 +1,6 @@
 import GameController from './game_controller';
-import '../../css/floors/style.less';
+import '../css/style.less';
+import '../css/fonts/roboto/RobotoCondensed-Bold.css';
 
 var tips = {
     fail: '弹簧弹子每次弹跳都会回血哦~',
@@ -8,7 +9,7 @@ var tips = {
 
 var preloadImg = function () {
     var imgList = [
-        '/images/floors/spring-up.png'
+        '../images/spring-up.png'
     ];
     for (var i = 0; i < imgList.length; i++) {
         var _img = new Image();
