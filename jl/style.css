@@ -1,0 +1,125 @@
+#cover {
+    position: absolute;
+    top: 0;
+    z-index: 100;
+}
+
+body {
+    margin: 0;
+    background-color: #FFF;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+b {
+    color: #CA8EFE;
+}
+
+a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+nav {
+    position: fixed;
+    z-index: 1000;
+    left: -100px;
+    top: 160px;
+    -webkit-transition: all 0.5s 0.8s;
+    -moz-transition: all 0.5s 0.8s;
+    -ms-transition: all 0.5s 0.8s;
+    -o-transition: all 0.5s 0.8s;
+    transition: all 0.5s 0.8s;
+}
+
+body.open nav {
+    left: 0;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    opacity: 0.4;
+}
+
+nav ul,
+nav ul a {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+nav ul:hover {
+    opacity: 0.8;
+}
+
+nav ul a {
+    display: inline-block;
+    min-width: 20px;
+    line-height: 40px;
+    text-align: center;
+    padding: 0 10px;
+    text-decoration: none;
+    color: #CCC;
+    background-color: #34495E;
+}
+
+nav ul a[href="#skill"] {
+    background-color: #2980B9;
+}
+
+nav ul a[href="#about"] {
+    background-color: #C0392B;
+}
+
+nav ul a[href="#works"] {
+    background-color: #27AE60;
+}
+
+nav ul a[href="#contact"] {
+    background-color: #2C3E50;
+}
+
+nav ul a span {
+    display: none;
+}
+
+nav ul a:hover {
+    color: #FFF;
+    padding: 0 20px;
+}
+
+nav ul a.current span,
+nav ul a:hover span {
+    display: inline-block;
+}
+
+body>section {
+    width: 100%;
+    height: 700px;
+    overflow: hidden;
+}
+
+body #skill,
+body #about,
+body #works,
+body #contact {
+    display: none;
+}
+
+#skill,
+#works {
+    background-color: #EEE;
+}
+
+body.open #skill,
+body.open #about,
+body.open #works,
+body.open #contact {
+    display: block;
+}
