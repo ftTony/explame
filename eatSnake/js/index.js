@@ -1,3 +1,7 @@
+/**
+ * 参考代码 https://github.com/DMQ/eatSnake
+ */
+
 window.onload = function () {
     var Snake = function (width, height, snakeId, speed, isAuto) {
         this.width = width || 20; //创建地图的行跟列数
@@ -267,7 +271,7 @@ window.onload = function () {
                 this.snakeGrid[0] = [headx, heady];
                 if (this.pointInSnake(this.snakeGrid[0], 1)) {
                     isEnd = true;
-                    msg = 'SB，吃到自己啦';
+                    msg = '吃到自己啦';
                     //判断是否撞墙
                 } else if (this.isWall(this.snakeGrid[0])) {
                     isEnd = true;
