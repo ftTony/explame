@@ -10,12 +10,13 @@
 
 ##### 主界面
 
-![](/src/images/floors-01.png)
-
+<img width="280" alt="floors-01" src="https://user-images.githubusercontent.com/6395813/50571776-d85e9c00-0ded-11e9-9ebc-0b9f3e4035f7.png">
 ##### 游戏界面
-![](/src/images/floors-02.png)
+
+<img width="280" alt="floors-02" src="https://user-images.githubusercontent.com/6395813/50571780-e9a7a880-0ded-11e9-908f-22990ad46e01.png">
 ##### 游戏结束界面
-![](/src/images/floors-03.png)
+
+<img width="279" alt="floors-03" src="https://user-images.githubusercontent.com/6395813/50571782-f1674d00-0ded-11e9-902f-440bfa235fa4.png">
 
 - 游戏介绍
 
