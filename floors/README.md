@@ -1,16 +1,15 @@
-## 英雄下楼层
-
 ### 1. 游戏介绍
 
 #### 1.1 游戏效果
 
 [预览地址](https://fttony.github.io/explame/floors/)
 
-运行项目步骤
+运行项目
 
-进入
+>进入项目运行npm install——>npm run dev
 
 ##### 主界面
+
 
 ##### 游戏界面
 
