@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+}
+
+body {
+    background: #444;
+}
+
+table {
+    border-collapse: collapse;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    margin: 10px auto 10px auto;
+}
+
+td {
+    display: table-cell;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border: 1px #eeeeee solid;
+}
+
+.snake {
+    background-color: #3388ee;
+}
+
+.notsnake {
+    background: #fff;
+}
+
+.food {
+    background: #33aa33;
+}
+
+.snake_head{
+    background: #dd4444;
+}
+
+.notice{
+    width:450px;
+    text-align: center;
+    margin: 50px;
+    color:#fff;
+    font-size: 14px;
+}
