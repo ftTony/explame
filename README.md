@@ -1,7 +1,7 @@
 ### 游戏项目
 1. [下楼层](https://fttony.github.io/explame/floors/)
 1. 变色龙
-1. [俄罗斯方块](https://github.com/ftTony/explame/tree/master/Tetris/ys)
+1. [俄罗斯方块](https://fttony.github.io/explame/Tetris/ys/)
 1. [贪吃蛇](https://fttony.github.io/explame/eatSnake)
 2. [2048](https://fttony.github.io/explame/2048)
 
