@@ -2,7 +2,7 @@
 1. [下楼层](https://fttony.github.io/explame/floors/)
 1. 变色龙
 1. [贪吃蛇](https://fttony.github.io/explame/eatSnake)
-2. 2048
+2. [2048](https://fttony.github.io/explame/2048)
 
 ### Vue项目
 
