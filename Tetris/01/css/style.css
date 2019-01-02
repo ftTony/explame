@@ -1,7 +1,7 @@
 .square{
 	width:400px;
 	height:600px;
-	float:left;
+	margin: 20px auto;
 }
 .title{
 	font-size:30px;
@@ -53,4 +53,7 @@
 	height:18px;
 	background-color:gray;
 	border:1px solid black;
+}
+.tips{
+	text-align: center;
 }
