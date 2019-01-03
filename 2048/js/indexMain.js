@@ -140,21 +140,21 @@ function showNumberWithAnimation(i, j, randNumber) {
 
     numberCell.animate({
         width: cellSideLength,
-        height:cellSideLength,
-        top:getPosTop(i,j),
-        left:getPosLeft(i,j)
+        height: cellSideLength,
+        top: getPosTop(i, j),
+        left: getPosLeft(i, j)
     });
 }
 
-function showMoveAnimation(fromx,fromy,tox,toy){ 
-    var numberCell=$('#number-cell'+fromx+'-'+fromy);
+function showMoveAnimation(fromx, fromy, tox, toy) {
+    var numberCell = $('#number-cell' + fromx + '-' + fromy);
     numberCell.animate({
-        top:getPosTop(tox,toy),
-        left:getPosLeft(tox,toy)
-    },200);
+        top: getPosTop(tox, toy),
+        left: getPosLeft(tox, toy)
+    }, 200);
 }
 
-function upDateScore(score){
+function upDateScore(score) {
     $('#score').text(score);
 }
 
@@ -207,23 +207,128 @@ function init() {
 
     for (var i = 0; i < 4; i++) {
         board[i] = new Array();
-        hasConflicted[i]=new Array();
-        for(var j=0;j<4;j++){
-            board[i][j]=0;
-            hasConflicted[i][j]=false;
+        hasConflicted[i] = new Array();
+        for (var j = 0; j < 4; j++) {
+            board[i][j] = 0;
+            hasConflicted[i][j] = false;
         }
     }
     updateBoardView();
-    score=0;
+    score = 0;
 }
 
-function generateOneNumber() {
+function updateBoardView() {
     $('.number-cell').remove();
-    for(var i=0;i<4;i++){
-        for(var j=0;j<4;j++){
-            $('.grid-container').append('<div class="number-cell" id="number-cell-"'+i+'-'+j+'"></div>');
-            var theNumberCell=$('#number-cell-'+i+'-'+j);
-            
+    for (var i = 0; i < 4; i++) {
+        for (var j = 0; j < 4; j++) {
+            $('.grid-container').append('<div class="number-cell" id="number-cell-"' + i + '-' + j + '"></div>');
+            var theNumberCell = $('#number-cell-' + i + '-' + j);
+
+            if (board[i][j] === 0) {
+                theNumberCell.css('width', '0px').css('height', '0px').css('top', getPosTop(i, j) + 0.5 * cellSideLength).css('left', getPosLeft(i, j) + 0.5 * cellSideLength);
+            } else if (board[i][j] > 1000) {
+                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberBackgroundColor(board[i][j])).text(board[i][j]).css('font-size', 04 * cellSideLength + 'px');
+            } else {
+                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberBackgroundColor(board[i][j])).text(board[i][j]).css('font-size', 0.6 * cellSideLength + 'px');
+            }
+            hasConflicted[i][j] = false;
         }
     }
+    $('.number-cell').css('line-height', cellSideLength + 'px');
+}
+
+
+function generateOneNumber() {
+    // 判断是否存在空间
+    if (nospace(board)) return false;
+
+    // 随机生成一个位置
+    var randx = parseInt(Math.floor(Math.random() * 4));
+    var randy = parseInt(Math.floor(Math.random() * 4));
+
+    var times = 0;
+    while (times < 50) {
+        if (board[randx][randy] === 0) break;
+
+        randx = parseInt(Math.floor(Math.random() * 4));
+        randy = parseInt(Math.floor(Math.random() * 4));
+        times++;
+    }
+    if (times === 50) {
+        for (var i = 0; i < 4; i++) {
+            for (var j = 0; j < 4; j++) {
+                if (board[i][j] === 0) {
+                    randx = i;
+                    randy = j;
+                }
+            }
+        }
+    }
+    // 随机生成一个数字
+    var randNumber = Math.random() < 0.5 ? 2 : 4;
+
+    board[randx][randy] = randNumber;
+    showNumberWithAnimation(randx, randy, randNumber);
+
+    return true;
+}
+
+$(document).keydown(function (event) {
+    switch (event.keyCode) {
+        case 37:
+
+    }
+});
+
+document.addEventListener('touchstart', function (event) {
+    startx = event.touches[0].pageX;
+    starty = event.touches[0].pageY;
+});
+
+document.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener('touchend', function (event) {
+    endx = event.changedTouches[0].pageX;
+    endy = event.changedTouches[0].pageY;
+
+    var deltax = endx - startx;
+    var deltay = endy - starty;
+
+    if (Math.abs(deltax) < 0.1 * documentWidth && Math.abs(deltay) < 0.1 * documentWidth) return;
+
+    if (Math.abs(deltax) >= Math.abs(deltay)) {
+        if (deltax > 0) {
+            if (moveRight()) {
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isganeover()', 300);
+            }
+        } else {
+            if (moveLeft()) {
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isganeover()', 300);
+            }
+        }
+    } else {
+        if (deltay > 0) {
+            if (canMoveDown()) {
+                setTimeout('generateOneNumber()', 210);
+                setTimeout('isganeover()', 210);
+            }
+        } else {
+            if(canMoveUp()){
+                setTimeout('generateOneNumber()',210);
+                setTimeout('isganeover();',300);
+            }
+        }
+    }
+});
+
+function isganeover(){
+
+}
+
+function gameover(){
+    
 }
