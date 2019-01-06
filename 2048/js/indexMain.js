@@ -77,15 +77,15 @@ function canMoveLeft(board) {
                 if (board[i][j - 1] === 0 || board[i][j - 1] === board[i][j]) return true;
             }
         }
-        return false;
     }
+    return false;
 }
 
 function canMoveUp(board) {
     for (var j = 0; j < 4; j++) {
         for (var i = 1; i < 4; i++) {
             if (board[i][j] != 0) {
-                if (board[i - 1][j] === 0 || board[j - 1][j] === board[i][j]) return true;
+                if (board[i - 1][j] === 0 || board[i - 1][j] === board[i][j]) return true;
             }
         }
     }
@@ -134,16 +134,20 @@ function nomove(board) {
 }
 
 function showNumberWithAnimation(i, j, randNumber) {
-    var numberCell = $('#number-cell-' + i + '-' + j);
+    var numberCell = $('#number-cell-' + i +'-'+ j);
 
-    numberCell.css('background-color', getNumberBackgroundColor(randNumber)).css('color', getNumberColor(randNumber)).css('border-radius', 0.06 * cellSideLength).text(randNumber).css('font-size', 0.6 * cellSideLength + 'px');
+	numberCell.css("background-color",getNumberBackgroundColor(randNumber))
+              .css("color",getNumberColor(randNumber))
+              .css('border-radius',0.06*cellSideLength)
+              .text(randNumber)
+              .css('font-size',0.6*cellSideLength+'px');
 
-    numberCell.animate({
-        width: cellSideLength,
-        height: cellSideLength,
-        top: getPosTop(i, j),
-        left: getPosLeft(i, j)
-    });
+	numberCell.animate({
+		width:cellSideLength,
+		height:cellSideLength,
+		top:getPosTop(i,j),
+		left:getPosLeft(i,j),
+	},50);
 }
 
 function showMoveAnimation(fromx, fromy, tox, toy) {
@@ -223,9 +227,9 @@ function updateBoardView() {
             if (board[i][j] === 0) {
                 theNumberCell.css('width', '0px').css('height', '0px').css('top', getPosTop(i, j) + 0.5 * cellSideLength).css('left', getPosLeft(i, j) + 0.5 * cellSideLength);
             } else if (board[i][j] > 1000) {
-                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberBackgroundColor(board[i][j])).text(board[i][j]).css('font-size', 04 * cellSideLength + 'px');
+                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberColor(board[i][j])).text(board[i][j]).css('font-size', 04 * cellSideLength + 'px');
             } else {
-                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberBackgroundColor(board[i][j])).text(board[i][j]).css('font-size', 0.6 * cellSideLength + 'px');
+                theNumberCell.css('width', cellSideLength).css('height', cellSideLength).css('top', getPosTop(i, j)).css('left', getPosLeft(i, j)).css('border-radius', 0.06 * cellSideLength).css('background-color', getNumberBackgroundColor(board[i][j])).css('color', getNumberColor(board[i][j])).text(board[i][j]).css('font-size', 0.6 * cellSideLength + 'px');
             }
             hasConflicted[i][j] = false;
         }
@@ -358,23 +362,27 @@ function gameover() {
 }
 
 function moveLeft() {
-    // 判断是否可以向左移动
-    if (!canMoveLeft(board)) return false;
+    if (!canMoveLeft(board)) //判断是否可以向左移动
+        return false;
 
     for (var i = 0; i < 4; i++) {
-        for (var j = 1; i < 4; j++) {
+        for (var j = 1; j < 4; j++) {
             if (board[i][j] != 0) {
                 for (var k = 0; k < j; k++) {
                     if (board[i][k] === 0 && noBlockHorizontal(i, k, j, board)) {
-                        // 移动
+
+                        //移动
                         showMoveAnimation(i, j, i, k);
                         board[i][k] = board[i][j];
                         board[i][j] = 0;
                         continue;
                     } else if (board[i][k] === board[i][j] && noBlockHorizontal(i, k, j, board) && !hasConflicted[i][k]) {
+
+                        //add
                         showMoveAnimation(i, j, i, k);
                         board[i][k] += board[i][j];
                         board[i][j] = 0;
+                        //add score
                         score += board[i][k];
                         upDateScore(score);
 
@@ -385,7 +393,8 @@ function moveLeft() {
             }
         }
     }
-    setTimeout('updateBoardView()', 200);
+    //updateBoardView();
+    setTimeout("updateBoardView()", 200); //刷新时间延迟
     return true;
 }
 
