@@ -2,12 +2,12 @@
 1. [下楼层](https://fttony.github.io/explame/floors/)
 1. 变色龙
 1. [俄罗斯方块](https://fttony.github.io/explame/Tetris/ys/)
-1. [贪吃蛇](https://fttony.github.io/explame/eatSnake)
+1. [贪吃蛇](https://fttony.github.io/Tetris/eatSnake)
 2. [2048](https://fttony.github.io/explame/2048)
 
 ### Vue项目
 
-1. 仿网易云音乐
+1. [仿qq音乐源码](https://github.com/ftTony/Music)
 1. 聊天室
 
 ### 插件
